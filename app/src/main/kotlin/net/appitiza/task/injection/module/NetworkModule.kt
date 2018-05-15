@@ -5,6 +5,8 @@ import dagger.Provides
 import dagger.Reusable
 import io.reactivex.schedulers.Schedulers
 import net.appitiza.task.network.PostApi
+import net.appitiza.task.network.StoreApi
+import net.appitiza.task.utility.BASE_HOST_URL
 import net.appitiza.task.utility.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -29,6 +31,12 @@ object NetworkModule {
         return retrofit.create(PostApi::class.java)
     }
 
+    @Provides
+    @Reusable
+    @JvmStatic
+    internal fun provideStoreApi(retrofit: Retrofit): StoreApi {
+        return retrofit.create(StoreApi::class.java)
+    }
     /**
      * Provides the Retrofit object.
      * @return the Retrofit object
@@ -38,7 +46,7 @@ object NetworkModule {
     @JvmStatic
     internal fun provideRetrofitInterface(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_HOST_URL)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
                 .build()

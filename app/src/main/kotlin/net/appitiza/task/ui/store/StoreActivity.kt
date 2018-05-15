@@ -13,6 +13,7 @@ import net.appitiza.task.databinding.ActivityPostBinding
 import net.appitiza.task.databinding.ActivityStoreBinding
 import net.appitiza.task.model.Post
 import net.appitiza.task.model.RestaurantAreaInfo
+import net.appitiza.task.model.StoreDetails
 import net.appitiza.task.ui.post.PostAdapter
 import net.appitiza.task.ui.post.PostPresenter
 import net.appitiza.task.ui.post.PostView
@@ -27,11 +28,11 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_store)
-        binding.adapter = storeAdapter
-        binding.layoutManager = LinearLayoutManager(this)
-        binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+       // binding.adapter = storeAdapter
+       // binding.layoutManager = LinearLayoutManager(this)
+       // binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 
-        presenter.onViewCreated()
+        presenter.onStoreViewCreated("restaurantAreaInfo",1,21,1,366)
     }
 
     override fun onDestroy() {
@@ -39,8 +40,10 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
         presenter.onViewDestroyed()
     }
 
-    override fun updateStore(store: List<RestaurantAreaInfo>) {
-        storeAdapter.updateStore(store)
+    override fun updateStore(store: StoreDetails) {
+        //storeAdapter.updateStore(store!!.restaurantAreaInfo)
+        binding.storeData = store
+        binding.executePendingBindings()
     }
 
     override fun showError(error: String) {

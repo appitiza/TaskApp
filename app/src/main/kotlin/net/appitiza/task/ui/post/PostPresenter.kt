@@ -8,12 +8,7 @@ import net.appitiza.task.base.BasePresenter
 import net.appitiza.task.network.PostApi
 import javax.inject.Inject
 
-/**
- * The Presenter that will present the Post view.
- * @param postView the Post view to be presented by the presenter
- * @property postApi the API interface implementation
- * @property subscription the subscription to the API call
- */
+
 class PostPresenter(postView: PostView) : BasePresenter<PostView>(postView) {
     @Inject
     lateinit var postApi: PostApi
@@ -24,10 +19,6 @@ class PostPresenter(postView: PostView) : BasePresenter<PostView>(postView) {
         loadPosts()
     }
 
-    /**
-     * Loads the posts from the API and presents them in the view when retrieved, or showss error if
-     * any.
-     */
     fun loadPosts() {
         view.showLoading()
         subscription = postApi
