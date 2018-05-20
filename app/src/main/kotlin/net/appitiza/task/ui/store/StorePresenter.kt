@@ -36,12 +36,12 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
                   rId: Int) {
         view.showLoading()
         subscription = storeApi
-               /* .getStore(action,
+                .getStore(action,
                         langId,
                         countryId,
                         areaId,
-                        rId)*/
-                .getStore()
+                        rId)
+              /*  .getStore()*/
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .doOnTerminate { view.hideLoading() }
