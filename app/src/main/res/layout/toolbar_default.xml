@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    app:layout_height="wrap_content"
+    app:layout_width="match_parent"
+    app:theme="?attr/actionBarTheme">
+
+    <android.support.v7.widget.Toolbar
+        app:background="?attr/colorPrimary"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:elevation="0dp"
+        app:fitsSystemWindows="true"
+        app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@id/toolbar"
+        app:layout_height="UNKNOWN_DATA_0x7f01007b"
+        app:layout_width="match_parent"
+        app:popupTheme="?attr/actionBarPopupTheme">
+
+        <RelativeLayout
+            app:layout_height="match_parent"
+            app:layout_width="match_parent">
+
+            <ImageView
+                app:id="@+id/toolbar_back_icon"
+                app:layout_alignParentLeft="true"
+                app:layout_alignParentTop="true"
+                app:layout_centerVertical="true"
+                app:layout_height="match_parent"
+                app:layout_marginLeft="@dimen/default_horizontal_margin"
+                app:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_arrow_back_black_24px" />
+
+            <TextView
+                app:id="@+id/text_view_title"
+                app:layout_centerInParent="true"
+                app:layout_height="wrap_content"
+                app:layout_width="wrap_content"
+                app:text="@string/forgot_password_title"
+                app:textColor="0x106000c"
+                app:textSize="@dimen/title_activity_font_size"
+                fontPath="fonts/ClanPro-NarrNews.otf" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+</android.support.design.widget.AppBarLayout>
