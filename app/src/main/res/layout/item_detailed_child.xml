@@ -21,7 +21,7 @@
             android:layout_height="80dp"
             android:layout_gravity="center_vertical"
             android:scaleType="centerCrop"
-            android:src="@drawable/dummy" />
+            app:imageUrl="@{menuArray.orgitemImage}" />
         <!--app:imageUrl="@{menuArray.itemImage}"-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,10 +36,9 @@
                 android:layout_gravity="start"
                 android:gravity="start"
                 android:padding="@dimen/semi_margin"
-                android:text="test"
+                android:text="@{menuArray.itemName_eng}"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/text_color_black" />
-            <!--android:text="@{menuArray.itemName_eng}"-->
             <TextView
                 android:id="@+id/tv_child_desc"
                 android:layout_width="match_parent"
