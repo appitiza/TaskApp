@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Task App</string>
     <string name="unknown_error">An unknown error occurred.</string>
+    <!--transition animation-->
+    <string name="transition_store_detailed">image_store_detailed</string>
+    <string name="image_store_detailed">image_store_detailed</string>
 </resources>

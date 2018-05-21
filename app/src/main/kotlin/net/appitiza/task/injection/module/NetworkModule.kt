@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import io.reactivex.schedulers.Schedulers
+import net.appitiza.task.network.DetailedApi
 import net.appitiza.task.network.PostApi
 import net.appitiza.task.network.StoreApi
 import net.appitiza.task.utility.BASE_HOST_URL
@@ -36,6 +37,13 @@ object NetworkModule {
     @JvmStatic
     internal fun provideStoreApi(retrofit: Retrofit): StoreApi {
         return retrofit.create(StoreApi::class.java)
+    }
+
+    @Provides
+    @Reusable
+    @JvmStatic
+    internal fun provideDetailedApi(retrofit: Retrofit): DetailedApi {
+        return retrofit.create(DetailedApi::class.java)
     }
     /**
      * Provides the Retrofit object.

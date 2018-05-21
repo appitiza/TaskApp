@@ -14,24 +14,27 @@ import net.appitiza.task.model.Post
  * @property context Context in which the application is running
  */
 class PostAdapter(private val context: Context) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+
     /**
      * The list of posts of the adapter
      */
     private var posts: List<Post> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): PostViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         val binding: ItemPostBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_post, parent, false)
         return PostViewHolder(binding)
     }
 
+    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+        holder?.bind(posts[position])
+    }
+
+
     override fun getItemCount(): Int {
         return posts.size
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder?, position: Int) {
-        holder?.bind(posts[position])
-    }
 
     /**
      * Updates the list of posts of the adapter

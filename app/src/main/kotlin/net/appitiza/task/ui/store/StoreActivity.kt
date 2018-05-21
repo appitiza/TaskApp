@@ -1,22 +1,14 @@
 package net.appitiza.task.ui.store
 
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_store.*
 import net.appitiza.task.R
 import net.appitiza.task.base.BaseActivity
-import net.appitiza.task.databinding.ActivityPostBinding
 import net.appitiza.task.databinding.ActivityStoreBinding
-import net.appitiza.task.model.Post
-import net.appitiza.task.model.RestaurantAreaInfo
 import net.appitiza.task.model.StoreDetails
-import net.appitiza.task.ui.post.PostAdapter
-import net.appitiza.task.ui.post.PostPresenter
-import net.appitiza.task.ui.post.PostView
 
 class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
@@ -27,12 +19,14 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_store)
-       // binding.adapter = storeAdapter
-       // binding.layoutManager = LinearLayoutManager(this)
-       // binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_store)
+        // binding.adapter = storeAdapter
+        // binding.layoutManager = LinearLayoutManager(this)
+        // binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 
-        presenter.onStoreViewCreated("restaurantAreaInfo",1,21,1,366)
+        presenter.onStoreViewCreated("restaurantAreaInfo", 1, 21, 1, 366)
+
+        ll_item.setOnClickListener { presenter.movetoDetailed(iv_item,366, this) }
     }
 
     override fun onDestroy() {

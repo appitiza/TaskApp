@@ -11,20 +11,23 @@ import net.appitiza.task.databinding.ItemStoreBinding
 import net.appitiza.task.model.RestaurantAreaInfo
 
 class StoreAdapter(private val context: Context) : RecyclerView.Adapter<StoreAdapter.StoreViewHolder>() {
+
     private var stores: List<RestaurantAreaInfo> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): StoreViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         val binding: ItemStoreBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_store, parent, false)
         return StoreViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        return stores.size
+    override fun onBindViewHolder(holder: StoreViewHolder, position: Int) {
+        holder?.bind(stores[position])
     }
 
-    override fun onBindViewHolder(holder: StoreViewHolder?, position: Int) {
-        holder?.bind(stores[position])
+
+    override fun getItemCount(): Int {
+        return stores.size
     }
 
     fun updateStore(stores: List<RestaurantAreaInfo>) {
