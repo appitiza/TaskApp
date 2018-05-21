@@ -2,8 +2,7 @@ package net.appitiza.task.ui.store
 
 import android.support.annotation.StringRes
 import net.appitiza.task.base.BaseView
-import net.appitiza.task.model.RestaurantAreaInfo
-import net.appitiza.task.model.StoreDetails
+import net.appitiza.task.model.storeModel.StoreDetails
 
 interface StoreView : BaseView {
 

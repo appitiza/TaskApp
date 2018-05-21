@@ -1,4 +1,4 @@
-package net.appitiza.task.model
+package net.appitiza.task.model.storeModel
 
 data class RestaurantAreaInfo(val restaurantCurrentStatus: String?,
                               val rId: String?,

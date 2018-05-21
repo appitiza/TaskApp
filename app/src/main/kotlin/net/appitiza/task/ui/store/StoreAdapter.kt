@@ -6,9 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import net.appitiza.task.R
-import net.appitiza.task.databinding.ItemPostBinding
 import net.appitiza.task.databinding.ItemStoreBinding
-import net.appitiza.task.model.RestaurantAreaInfo
+import net.appitiza.task.model.storeModel.RestaurantAreaInfo
 
 class StoreAdapter(private val context: Context) : RecyclerView.Adapter<StoreAdapter.StoreViewHolder>() {
 

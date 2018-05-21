@@ -22,12 +22,12 @@ class DetailedPresenter(detailedView: DetailedView) : BasePresenter<DetailedView
     fun loadDetailed(action: String, rId: Int, cusinetype: Int, langId: Int, countryId: Int) {
         view.showLoading()
         subscription = detailedApi
-                .getDetailed(action, rId, cusinetype, langId, countryId)
+                .getDetailed(action, rId, cusinetype, countryId, langId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .doOnTerminate { view.hideLoading() }
                 .subscribe(
-                        { stores -> view.updateDetailed(stores) },
+                        { detailed -> view.updateDetailed(detailed) },
                         { this::handleError }
                 )
 

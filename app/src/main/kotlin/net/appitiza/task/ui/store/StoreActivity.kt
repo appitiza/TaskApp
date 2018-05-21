@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_store.*
 import net.appitiza.task.R
 import net.appitiza.task.base.BaseActivity
 import net.appitiza.task.databinding.ActivityStoreBinding
-import net.appitiza.task.model.StoreDetails
+import net.appitiza.task.model.storeModel.StoreDetails
 
 class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
