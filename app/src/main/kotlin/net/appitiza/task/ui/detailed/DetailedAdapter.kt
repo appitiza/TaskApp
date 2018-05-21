@@ -11,6 +11,7 @@ import net.appitiza.task.databinding.ItemPostBinding
 import net.appitiza.task.model.DetailedModel.CategoryArray
 import java.util.ArrayList
 import net.appitiza.task.databinding.ItemStoreBinding
+import net.appitiza.task.model.DetailedModel.ListCategory
 import net.appitiza.task.model.Post
 import net.appitiza.task.model.storeModel.RestaurantAreaInfo
 import net.appitiza.task.ui.post.PostAdapter
@@ -44,8 +45,8 @@ class DetailedAdapter(private val context: Context) : RecyclerView.Adapter<Detai
      * Updates the list of posts of the adapter
      * @param posts the new list of posts of the adapter
      */
-    fun updateDetailed(detailedList: List<CategoryArray>) {
-        this.detailedList = detailedList
+    fun updateDetailed(detailedList: ListCategory) {
+        this.detailedList = detailedList.categoryArray
         notifyDataSetChanged()
     }
 

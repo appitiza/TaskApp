@@ -3,11 +3,12 @@ package net.appitiza.task.ui.detailed
 import android.support.annotation.StringRes
 import net.appitiza.task.base.BaseView
 import net.appitiza.task.model.DetailedModel.CategoryArray
+import net.appitiza.task.model.DetailedModel.ListCategory
 import net.appitiza.task.model.storeModel.StoreDetails
 
 interface DetailedView : BaseView {
 
-    fun updateDetailed(detailedList: List<CategoryArray>)
+    fun updateDetailed(detailedList: ListCategory)
 
     fun showError(error: String)
 

@@ -20,9 +20,6 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_store)
-        // binding.adapter = storeAdapter
-        // binding.layoutManager = LinearLayoutManager(this)
-        // binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
 
         presenter.onStoreViewCreated("restaurantAreaInfo", 1, 21, 1, 366)
 

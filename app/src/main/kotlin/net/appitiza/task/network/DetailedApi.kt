@@ -1,6 +1,7 @@
 package net.appitiza.task.network
 
 import io.reactivex.Observable
+import net.appitiza.task.model.DetailedModel.ListCategory
 import net.appitiza.task.model.storeModel.StoreDetails
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,5 +13,5 @@ interface DetailedApi {
                     @Query("cuisineType") cuisinetype: Int,
                     @Query("countryId") countryId: Int,
                     @Query("langId") langId: Int
-    ): Observable<StoreDetails>
+    ): Observable<ListCategory>
 }
