@@ -9,6 +9,15 @@ android {
     dataBinding {
         enabled = true
     }
+    signingConfigs {
+        config {
+            keyAlias 'taskapp'
+            keyPassword 'taskapp123'
+            storeFile file('taskapp.jks')
+            storePassword 'taskapp123'
+        }
+    }
+    compileSdkVersion 27
 
     defaultConfig {
         applicationId "net.appitiza.task"
