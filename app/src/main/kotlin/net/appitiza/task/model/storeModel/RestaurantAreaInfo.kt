@@ -1,5 +1,7 @@
 package net.appitiza.task.model.storeModel
 
+import java.io.Serializable
+
 data class RestaurantAreaInfo(val restaurantCurrentStatus: String?,
                               val rId: String?,
                               val rInfoId: String?,
@@ -28,7 +30,4 @@ data class RestaurantAreaInfo(val restaurantCurrentStatus: String?,
                               val currStatus: Int?,
                               val paymentType: List<PaymentType>?,
                               val hasOffer: Int?,
-                              val openingStatus: String?) {
-
-
-}
+                              val openingStatus: String?) : Serializable

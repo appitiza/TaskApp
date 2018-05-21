@@ -2,4 +2,6 @@
 <resources>
     <dimen name="general_padding">15dp</dimen>
     <dimen name="general_margin">15dp</dimen>
+    <dimen name="normal_margin">10dp</dimen>
+    <dimen name="semi_margin">5dp</dimen>
 </resources>

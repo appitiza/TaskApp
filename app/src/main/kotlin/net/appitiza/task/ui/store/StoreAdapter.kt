@@ -21,7 +21,7 @@ class StoreAdapter(private val context: Context) : RecyclerView.Adapter<StoreAda
     }
 
     override fun onBindViewHolder(holder: StoreViewHolder, position: Int) {
-        holder?.bind(stores[position])
+        holder.bind(stores[position])
     }
 
 

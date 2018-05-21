@@ -27,7 +27,7 @@ class PostAdapter(private val context: Context) : RecyclerView.Adapter<PostAdapt
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder?.bind(posts[position])
+        holder.bind(posts[position])
     }
 
 

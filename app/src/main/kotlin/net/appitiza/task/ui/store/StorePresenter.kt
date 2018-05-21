@@ -14,6 +14,7 @@ import io.reactivex.schedulers.Schedulers
 import net.appitiza.task.R
 import net.appitiza.task.R.id.iv_item
 import net.appitiza.task.base.BasePresenter
+import net.appitiza.task.model.storeModel.StoreDetails
 import net.appitiza.task.network.StoreApi
 import net.appitiza.task.ui.detailed.DetailedActivity
 import net.appitiza.task.utility.BASE_HOST_URL
@@ -23,6 +24,7 @@ import javax.inject.Inject
 
 
 class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView) {
+    val EXTRA_STORE: String = "store_data"
     @Inject
     lateinit var storeApi: StoreApi
 
@@ -36,9 +38,10 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
                 rId)
     }
 
-    fun movetoDetailed(view : View, rId: Int,context: Context) {
+    fun moveToDetailed(view : View, rId: Int,context: Context,stores: StoreDetails) {
 
         val intent = Intent(context, DetailedActivity::class.java)
+        intent.putExtra(EXTRA_STORE, stores)
         val p1 = Pair(view, context.getString(R.string.image_store_detailed))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity, p1)
         context.startActivity(intent, options.toBundle())
@@ -46,11 +49,11 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
 
     }
 
-    fun loadStore(action: String,
-                  langId: Int,
-                  countryId: Int,
-                  areaId: Int,
-                  rId: Int) {
+    private fun loadStore(action: String,
+                          langId: Int,
+                          countryId: Int,
+                          areaId: Int,
+                          rId: Int) {
         view.showLoading()
         subscription = storeApi
                 .getStore(action,
@@ -58,30 +61,13 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
                         countryId,
                         areaId,
                         rId)
-              /*  .getStore()*/
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .doOnTerminate { view.hideLoading() }
                 .subscribe(
                         { stores -> view.updateStore(stores) },
-                        { this::handleError}
+                        { view.showError(R.string.unknown_error)}
                 )
-
-       /* val requestInterface = Retrofit.Builder()
-                .baseUrl(BASE_HOST_URL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build().create(StoreApi::class.java)
-        var mCompositeDisposable: CompositeDisposable? = null
-        mCompositeDisposable?.add(requestInterface.getStore(action,
-                langId,
-                countryId,
-                areaId,
-                rId)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .doOnTerminate { view.hideLoading() }
-                .subscribe({ stores -> view.updateStore(stores) }, this::handleError))*/
-
 
     }
 

@@ -15,7 +15,7 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
     private lateinit var binding: ActivityStoreBinding
     private val storeAdapter = StoreAdapter(this)
-
+    private lateinit var stores: StoreDetails
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,7 +23,7 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
         presenter.onStoreViewCreated("restaurantAreaInfo", 1, 21, 1, 366)
 
-        ll_item.setOnClickListener { presenter.movetoDetailed(iv_item,366, this) }
+        ll_item.setOnClickListener { presenter.moveToDetailed(iv_item,366, this,this.stores ) }
     }
 
     override fun onDestroy() {
@@ -33,6 +33,7 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
     override fun updateStore(store: StoreDetails) {
         //storeAdapter.updateStore(store!!.restaurantAreaInfo)
+        this.stores = store
         binding.storeData = store
         binding.executePendingBindings()
     }

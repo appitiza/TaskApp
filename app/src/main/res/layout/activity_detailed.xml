@@ -52,6 +52,7 @@
                     android:layout_height="300dp"
                     android:fitsSystemWindows="true"
                     app:contentScrim="@android:color/transparent"
+                    app:title="@{data.restaurantAreaInfo.rName}"
                     app:expandedTitleMarginBottom="20dp"
                     app:expandedTitleMarginEnd="64dp"
                     app:expandedTitleMarginStart="48dp"
@@ -81,24 +82,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:cacheColorHint="@android:color/transparent"
+                android:background="@color/off_white"
                 android:clipToPadding="false"
                 android:fadeScrollbars="true"
                 android:orientation="vertical"
-                android:paddingTop="?attr/actionBarSize"
+                android:paddingTop="@dimen/semi_margin"
                 android:scrollbars="vertical"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_parentName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:padding="@dimen/general_padding"
+                    android:padding="@dimen/semi_margin"
                     android:text="@string/menu_detailed"
-                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@color/text_color_black" />
-
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/semi_margin"
+                    android:text="@{data.restaurantAreaInfo.workingHour}"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/text_color_gray" />
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_content"
                     android:layout_width="match_parent"

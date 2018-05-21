@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="menuArray"
+            type="net.appitiza.task.model.DetailedModel.MenuArray" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/semi_margin">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dummy" />
+        <!--app:imageUrl="@{menuArray.itemImage}"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/general_padding"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_child_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:padding="@dimen/semi_margin"
+                android:text="test"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_color_black" />
+            <!--android:text="@{menuArray.itemName_eng}"-->
+            <TextView
+                android:id="@+id/tv_child_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:padding="@dimen/semi_margin"
+                android:text="@{menuArray.itemDesc_eng}"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_color_gray" />
+
+            <TextView
+                android:id="@+id/tv_child_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:padding="@dimen/semi_margin"
+                android:text="@{menuArray.itemPrice}"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_color_gray" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/off_white" />
+
+    </LinearLayout>
+</layout>

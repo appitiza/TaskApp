@@ -1,36 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<data>
+    <data>
 
-    <variable
-        name="categoryArray"
-        type="net.appitiza.task.model.DetailedModel.CategoryArray" />
-</data>
+        <variable
+            name="categoryArray"
+            type="net.appitiza.task.model.DetailedModel.CategoryArray" />
+
+        <variable
+            name="adapter"
+            type="net.appitiza.task.ui.detailed.ChildAdapter" />
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.LinearLayoutManager" />
+
+        <variable
+            name="dividerItemDecoration"
+            type="android.support.v7.widget.DividerItemDecoration" />
+
+    </data>
 
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_parentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/general_padding"
+            android:text="@{categoryArray.menuName_eng}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/text_color_black" />
 
-            <TextView
-                android:id="@+id/tv_parentName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/general_padding"
-                android:text="@{categoryArray.menuName_eng}"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@color/text_color_black"
-                android:textAppearance="?android:textAppearanceLarge"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_child"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:adapter="@{adapter}"
+            app:dividerItemDecoration="@{dividerItemDecoration}"
+            app:layoutManager="@{layoutManager}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<View
-    android:layout_width="match_parent"
-    android:layout_height="0.5dp"
-    android:background="@color/text_color_gray"
-    android:elevation="4dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/off_white" />
 
-        </LinearLayout>
+    </LinearLayout>
 </layout>

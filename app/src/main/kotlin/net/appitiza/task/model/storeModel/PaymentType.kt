@@ -1,4 +1,5 @@
 package net.appitiza.task.model.storeModel
 
-data class PaymentType(val paymentMethod: String?, val image: String?) {
-}
+import java.io.Serializable
+
+data class PaymentType(val paymentMethod: String?, val image: String?) : Serializable

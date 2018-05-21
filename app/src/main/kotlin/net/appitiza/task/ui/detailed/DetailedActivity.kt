@@ -10,28 +10,35 @@ import android.widget.Toast
 import net.appitiza.task.R
 import net.appitiza.task.base.BaseActivity
 import net.appitiza.task.databinding.ActivityDetailedBinding
-import net.appitiza.task.model.DetailedModel.CategoryArray
 import net.appitiza.task.model.DetailedModel.ListCategory
 import net.appitiza.task.model.storeModel.StoreDetails
 
 class DetailedActivity : BaseActivity<DetailedPresenter>(), DetailedView {
 
-
+    val EXTRA_STORE: String = "store_data"
     private lateinit var binding: ActivityDetailedBinding
     private val detailedAdapter = DetailedAdapter(this)
+    private lateinit var stores: StoreDetails
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detailed)
         setActionbar()
+        getData()
         binding.adapter = detailedAdapter
         binding.layoutManager = LinearLayoutManager(this)
         binding.dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
-        presenter.onDetailedViewCreated("menuCategories", 366, 1, 1, 21)
+        presenter.onDetailedViewCreated("menuCategories", stores.restaurantAreaInfo?.rId, 1, 1, 21)
         presenter.onViewCreated()
     }
+
+    private fun getData() {
+        stores = intent.extras.getSerializable(EXTRA_STORE) as StoreDetails
+        binding.data = stores
+    }
+
     private fun setActionbar() {
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar) as Toolbar
+        val toolbar: Toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         if (supportActionBar != null) {

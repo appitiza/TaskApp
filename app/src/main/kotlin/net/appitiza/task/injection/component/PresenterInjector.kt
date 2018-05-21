@@ -13,10 +13,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [(ContextModule::class), (NetworkModule::class)])
 interface PresenterInjector {
-    /**
-     * Injects required dependencies into the specified PostPresenter.
-     * @param postPresenter PostPresenter in which to inject the dependencies
-     */
 
     fun inject(storePresenter: StorePresenter)
     fun inject(postPresenter: PostPresenter)

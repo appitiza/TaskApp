@@ -27,7 +27,7 @@ abstract class BasePresenter<out V : BaseView>(protected val view: V) {
                                 countryId: Int,
                                 areaId: Int,
                                 rId: Int){}
-    open fun onDetailedViewCreated(action: String, rId: Int,cusinetype: Int, langId: Int, countryId: Int){}
+    open fun onDetailedViewCreated(action: String, rId: String?,cusinetype: Int, langId: Int, countryId: Int){}
     open fun onViewDestroyed(){}
 
     private fun inject() {

@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         applicationId "net.appitiza.task"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -64,6 +64,9 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:2.14.1"
     compileOnly "org.glassfish:javax.annotation:3.1.1"
 
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     //Rx
     implementation "io.reactivex.rxjava2:rxjava:2.1.9"
     implementation "io.reactivex.rxjava2:rxandroid:2.0.2"

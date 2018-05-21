@@ -19,7 +19,7 @@ class PostPresenter(postView: PostView) : BasePresenter<PostView>(postView) {
         loadPosts()
     }
 
-    fun loadPosts() {
+    private fun loadPosts() {
         view.showLoading()
         subscription = postApi
                 .getPosts()

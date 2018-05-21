@@ -1,5 +1,5 @@
 package net.appitiza.task.model.storeModel
 
-data class StoreDetails (val responseCode: Int?,val restaurantAreaInfo: RestaurantAreaInfo?){
+import java.io.Serializable
 
-}
+data class StoreDetails (val responseCode: Int?,val restaurantAreaInfo: RestaurantAreaInfo?) : Serializable
