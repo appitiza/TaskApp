@@ -6,7 +6,6 @@ import net.appitiza.task.base.BaseView
 import net.appitiza.task.injection.module.ContextModule
 import net.appitiza.task.injection.module.NetworkModule
 import net.appitiza.task.ui.detailed.DetailedPresenter
-import net.appitiza.task.ui.post.PostPresenter
 import net.appitiza.task.ui.store.StorePresenter
 import javax.inject.Singleton
 
@@ -15,7 +14,6 @@ import javax.inject.Singleton
 interface PresenterInjector {
 
     fun inject(storePresenter: StorePresenter)
-    fun inject(postPresenter: PostPresenter)
     fun inject(detailedPresenter: DetailedPresenter)
 
     @Component.Builder

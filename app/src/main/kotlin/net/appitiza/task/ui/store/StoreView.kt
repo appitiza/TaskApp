@@ -2,7 +2,7 @@ package net.appitiza.task.ui.store
 
 import android.support.annotation.StringRes
 import net.appitiza.task.base.BaseView
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.storemodel.StoreDetails
 
 interface StoreView : BaseView {
 

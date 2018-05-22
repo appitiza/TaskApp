@@ -5,7 +5,7 @@
 
         <variable
             name="store_data"
-            type="net.appitiza.task.model.storeModel.StoreDetails" />
+            type="net.appitiza.task.model.storemodel.StoreDetails" />
 
         <variable
             name="progressVisibility"
@@ -39,9 +39,10 @@
                 <ImageView
                     android:id="@+id/iv_item"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/dummy_height"
                     android:contentDescription="@string/app_name"
                     android:transitionName="@string/image_store_detailed"
+                    android:scaleType="fitXY"
                     android:src="@drawable/dummy" />
 
                 <LinearLayout
@@ -58,6 +59,8 @@
                         android:layout_gravity="start"
                         android:gravity="start"
                         android:text="@{store_data.restaurantAreaInfo.rName}"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/clanpro_book"
                         android:textColor="@android:color/black" />
 
                     <TextView
@@ -67,6 +70,7 @@
                         android:layout_gravity="end"
                         android:gravity="end"
                         android:text="@{store_data.restaurantAreaInfo.rDeliveryTime}"
+                        android:fontFamily="@font/clanpro_book"
                         android:textColor="@color/text_color_gray" />
                 </LinearLayout>
 
@@ -75,6 +79,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{store_data.restaurantAreaInfo.cuisineTitle1}"
+                    android:fontFamily="@font/clanpro_book"
+                    android:layout_marginTop="@dimen/semi_margin"
                     android:textColor="@color/text_color_gray" />
 
             </LinearLayout>

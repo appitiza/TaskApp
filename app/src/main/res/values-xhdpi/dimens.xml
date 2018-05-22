@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_padding">14dp</dimen>
+    <dimen name="general_margin">14dp</dimen>
+    <dimen name="normal_margin">9dp</dimen>
+    <dimen name="semi_margin">4dp</dimen>
+    <dimen name="quad_margin">2dp</dimen>
+    <dimen name="toolbarlayout_height">320dp</dimen>
+    <dimen name="dummy_height">200dp</dimen>
+</resources>

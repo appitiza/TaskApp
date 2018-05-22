@@ -5,4 +5,5 @@
     <!--transition animation-->
     <string name="transition_store_detailed">image_store_detailed</string>
     <string name="image_store_detailed">image_store_detailed</string>
+    <string name="kd_symbl">%1$s KD</string>
 </resources>

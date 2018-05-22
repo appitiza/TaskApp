@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import net.appitiza.task.R
 import net.appitiza.task.databinding.ItemDetailedChildBinding
-import net.appitiza.task.databinding.ItemDetailedParentBinding
-import net.appitiza.task.model.DetailedModel.CategoryArray
-import net.appitiza.task.model.DetailedModel.ListCategory
-import net.appitiza.task.model.DetailedModel.MenuArray
+import net.appitiza.task.model.detailedmodel.MenuArray
 
 
 class ChildAdapter(private val context: Context) : RecyclerView.Adapter<ChildAdapter.ChildViewHolder>() {

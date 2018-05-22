@@ -5,26 +5,20 @@ import android.content.Context
 import android.content.Intent
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
-import android.util.Log
 import android.view.View
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import net.appitiza.task.R
-import net.appitiza.task.R.id.iv_item
 import net.appitiza.task.base.BasePresenter
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.storemodel.StoreDetails
 import net.appitiza.task.network.StoreApi
 import net.appitiza.task.ui.detailed.DetailedActivity
-import net.appitiza.task.utility.BASE_HOST_URL
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import javax.inject.Inject
 
 
 class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView) {
-    val EXTRA_STORE: String = "store_data"
+    private val EXTRA_STORE: String = "store_data"
     @Inject
     lateinit var storeApi: StoreApi
 
@@ -38,7 +32,7 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
                 rId)
     }
 
-    fun moveToDetailed(view : View, rId: Int,context: Context,stores: StoreDetails) {
+    fun moveToDetailed(view : View,context: Context,stores: StoreDetails) {
 
         val intent = Intent(context, DetailedActivity::class.java)
         intent.putExtra(EXTRA_STORE, stores)
@@ -72,11 +66,6 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
     }
 
 
-    private fun  handleError(error: Throwable) {
-
-        Log.d("Error", error.localizedMessage)
-
-    }
     override fun onViewDestroyed() {
         subscription?.dispose()
     }

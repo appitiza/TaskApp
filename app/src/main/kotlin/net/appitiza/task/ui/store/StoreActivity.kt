@@ -8,13 +8,12 @@ import kotlinx.android.synthetic.main.activity_store.*
 import net.appitiza.task.R
 import net.appitiza.task.base.BaseActivity
 import net.appitiza.task.databinding.ActivityStoreBinding
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.storemodel.StoreDetails
 
 class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
 
     private lateinit var binding: ActivityStoreBinding
-    private val storeAdapter = StoreAdapter(this)
     private lateinit var stores: StoreDetails
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
 
         presenter.onStoreViewCreated("restaurantAreaInfo", 1, 21, 1, 366)
 
-        ll_item.setOnClickListener { presenter.moveToDetailed(iv_item,366, this,this.stores ) }
+        ll_item.setOnClickListener { presenter.moveToDetailed(iv_item,this,this.stores ) }
     }
 
     override fun onDestroy() {

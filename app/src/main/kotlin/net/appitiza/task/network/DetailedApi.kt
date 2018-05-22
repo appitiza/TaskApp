@@ -1,8 +1,7 @@
 package net.appitiza.task.network
 
 import io.reactivex.Observable
-import net.appitiza.task.model.DetailedModel.ListCategory
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.detailedmodel.ListCategory
 import retrofit2.http.GET
 import retrofit2.http.Query
 

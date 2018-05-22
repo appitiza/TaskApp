@@ -9,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import net.appitiza.task.R
 import net.appitiza.task.databinding.ItemDetailedParentBinding
-import net.appitiza.task.model.DetailedModel.CategoryArray
-import net.appitiza.task.model.DetailedModel.ListCategory
-import net.appitiza.task.model.DetailedModel.MenuArray
+import net.appitiza.task.model.detailedmodel.CategoryArray
+import net.appitiza.task.model.detailedmodel.ListCategory
+import net.appitiza.task.model.detailedmodel.MenuArray
 
 
 class DetailedAdapter(private val context: Context) : RecyclerView.Adapter<DetailedAdapter.DetailedViewHolder>() {
@@ -26,13 +26,12 @@ class DetailedAdapter(private val context: Context) : RecyclerView.Adapter<Detai
     }
 
     override fun onBindViewHolder(holder: DetailedAdapter.DetailedViewHolder, position: Int) {
-        holder.bind(detailedList[position], context,selectedPosition,position)
+        holder.bind(detailedList[position], context,selectedPosition,holder.adapterPosition)
         holder.itemView.setOnClickListener {
-           if(selectedPosition == position){
-               selectedPosition = -1
-           }
-            else{
-               selectedPosition = position
+           selectedPosition = if(selectedPosition == holder.adapterPosition){
+               -1
+           } else{
+               position
            }
             notifyDataSetChanged()
         }

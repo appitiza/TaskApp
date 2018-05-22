@@ -1,7 +1,7 @@
 package net.appitiza.task.network
 
 import io.reactivex.Observable
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.storemodel.StoreDetails
 import retrofit2.http.GET
 import retrofit2.http.Query
 

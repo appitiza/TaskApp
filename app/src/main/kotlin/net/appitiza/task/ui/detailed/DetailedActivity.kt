@@ -10,12 +10,12 @@ import android.widget.Toast
 import net.appitiza.task.R
 import net.appitiza.task.base.BaseActivity
 import net.appitiza.task.databinding.ActivityDetailedBinding
-import net.appitiza.task.model.DetailedModel.ListCategory
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.detailedmodel.ListCategory
+import net.appitiza.task.model.storemodel.StoreDetails
 
 class DetailedActivity : BaseActivity<DetailedPresenter>(), DetailedView {
 
-    val EXTRA_STORE: String = "store_data"
+    private val EXTRA_STORE: String = "store_data"
     private lateinit var binding: ActivityDetailedBinding
     private val detailedAdapter = DetailedAdapter(this)
     private lateinit var stores: StoreDetails
@@ -38,7 +38,7 @@ class DetailedActivity : BaseActivity<DetailedPresenter>(), DetailedView {
 
     private fun setActionbar() {
 
-        val toolbar: Toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         if (supportActionBar != null) {

@@ -5,7 +5,7 @@
 
         <variable
             name="data"
-            type="net.appitiza.task.model.storeModel.StoreDetails" />
+            type="net.appitiza.task.model.storemodel.StoreDetails" />
 
         <variable
             name="adapter"
@@ -49,19 +49,19 @@
                 <android.support.design.widget.CollapsingToolbarLayout
                     android:id="@+id/collapsing_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="@dimen/toolbarlayout_height"
                     android:fitsSystemWindows="true"
                     app:contentScrim="@android:color/transparent"
                     app:title="@{data.restaurantAreaInfo.rName}"
-                    app:expandedTitleMarginBottom="20dp"
-                    app:expandedTitleMarginEnd="64dp"
-                    app:expandedTitleMarginStart="48dp"
+                    app:expandedTitleMarginBottom="@dimen/general_margin"
+                    app:expandedTitleMarginEnd="@dimen/general_margin"
+                    app:expandedTitleMarginStart="@dimen/general_margin"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                     <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/iv_detailed_item"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="@dimen/toolbarlayout_height"
                         android:contentDescription="@string/app_name"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
@@ -101,11 +101,13 @@
                     android:textColor="@color/text_color_black" />
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/tv_time"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:paddingBottom="@dimen/semi_margin"
+                    android:drawableStart="@drawable/time"
+                    android:drawablePadding="@dimen/quad_margin"
                     android:text="@{data.restaurantAreaInfo.workingHour}"
                     android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="@color/text_color_gray" />

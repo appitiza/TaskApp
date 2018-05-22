@@ -1,13 +1,11 @@
 package net.appitiza.task.ui.detailed
 
-import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import net.appitiza.task.R
 import net.appitiza.task.base.BasePresenter
 import net.appitiza.task.network.DetailedApi
-import net.appitiza.task.network.StoreApi
 import javax.inject.Inject
 
 class DetailedPresenter(detailedView: DetailedView) : BasePresenter<DetailedView>(detailedView) {
@@ -29,15 +27,9 @@ class DetailedPresenter(detailedView: DetailedView) : BasePresenter<DetailedView
                 .doOnTerminate { view.hideLoading() }
                 .subscribe(
                         { detailed -> view.updateDetailed(detailed) },
-                        {view.showError(R.string.unknown_error)}
+                        { view.showError(R.string.unknown_error) }
                 )
 
-
-    }
-
-    private fun handleError(error: Throwable) {
-
-        Log.d("Error", error.localizedMessage)
 
     }
 

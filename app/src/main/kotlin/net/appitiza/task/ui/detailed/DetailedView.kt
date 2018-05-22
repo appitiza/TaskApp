@@ -2,9 +2,7 @@ package net.appitiza.task.ui.detailed
 
 import android.support.annotation.StringRes
 import net.appitiza.task.base.BaseView
-import net.appitiza.task.model.DetailedModel.CategoryArray
-import net.appitiza.task.model.DetailedModel.ListCategory
-import net.appitiza.task.model.storeModel.StoreDetails
+import net.appitiza.task.model.detailedmodel.ListCategory
 
 interface DetailedView : BaseView {
 
