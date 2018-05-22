@@ -30,10 +30,9 @@ class StoreActivity : BaseActivity<StorePresenter>(), StoreView {
         presenter.onViewDestroyed()
     }
 
-    override fun updateStore(store: StoreDetails) {
-        //storeAdapter.updateStore(store!!.restaurantAreaInfo)
-        this.stores = store
-        binding.storeData = store
+    override fun updateStore(stores: StoreDetails) {
+        this.stores = stores
+        binding.storeData = stores
         binding.executePendingBindings()
     }
 

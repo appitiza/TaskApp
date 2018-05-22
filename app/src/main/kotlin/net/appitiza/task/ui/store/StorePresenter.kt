@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 
 class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView) {
-    private val EXTRA_STORE: String = "store_data"
+    private val EXTRASTORE: String = "storedata"
     @Inject
     lateinit var storeApi: StoreApi
 
@@ -35,7 +35,7 @@ class StorePresenter(storeView: StoreView) : BasePresenter<StoreView>(storeView)
     fun moveToDetailed(view : View,context: Context,stores: StoreDetails) {
 
         val intent = Intent(context, DetailedActivity::class.java)
-        intent.putExtra(EXTRA_STORE, stores)
+        intent.putExtra(EXTRASTORE, stores)
         val p1 = Pair(view, context.getString(R.string.image_store_detailed))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity, p1)
         context.startActivity(intent, options.toBundle())

@@ -126,8 +126,6 @@
 
 
             </LinearLayout>
-
-
         </android.support.design.widget.CoordinatorLayout>
 
         <ProgressBar
@@ -140,7 +138,5 @@
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
     </android.support.constraint.ConstraintLayout>
 </layout>

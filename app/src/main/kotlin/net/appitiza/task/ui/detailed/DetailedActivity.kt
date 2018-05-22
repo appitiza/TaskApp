@@ -15,7 +15,7 @@ import net.appitiza.task.model.storemodel.StoreDetails
 
 class DetailedActivity : BaseActivity<DetailedPresenter>(), DetailedView {
 
-    private val EXTRA_STORE: String = "store_data"
+    private val EXTRASTORE: String = "storedata"
     private lateinit var binding: ActivityDetailedBinding
     private val detailedAdapter = DetailedAdapter(this)
     private lateinit var stores: StoreDetails
@@ -32,7 +32,7 @@ class DetailedActivity : BaseActivity<DetailedPresenter>(), DetailedView {
     }
 
     private fun getData() {
-        stores = intent.extras.getSerializable(EXTRA_STORE) as StoreDetails
+        stores = intent.extras.getSerializable(EXTRASTORE) as StoreDetails
         binding.data = stores
     }
 
@@ -50,7 +50,7 @@ class DetailedActivity : BaseActivity<DetailedPresenter>(), DetailedView {
     }
 
     override fun updateDetailed(detailedList: ListCategory) {
-      detailedAdapter.updateDetailed(detailedList)
+        detailedAdapter.updateDetailed(detailedList)
     }
 
     override fun showError(error: String) {

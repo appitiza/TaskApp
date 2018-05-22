@@ -37,8 +37,8 @@
             android:gravity="center"
             android:padding="@dimen/general_padding"
             android:text="@{categoryArray.menuName_eng}"
-            android:fontFamily="@font/clanpro_book"
-            android:textAppearance="?android:textAppearanceLarge"
+            android:fontFamily="@font/clanpro"
+            android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/text_color_black" />
 
         <android.support.v7.widget.RecyclerView
@@ -55,7 +55,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="0.25dp"
             android:background="@color/off_white" />
 
     </LinearLayout>

@@ -12,9 +12,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:animateLayoutChanges="true"
         android:background="@color/white"
-        android:animateLayoutChanges="true">
+        android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
@@ -32,15 +32,15 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
+                android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{menuArray.orgitemImage}"
-                android:contentDescription="@string/app_name" />
+                app:imageUrl="@{menuArray.orgitemImage}" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/general_padding"
                 android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/general_padding"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
@@ -49,11 +49,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:fontFamily="@font/clanpro_book"
+                    android:fontFamily="@font/clanpro"
                     android:gravity="start"
                     android:padding="@dimen/semi_margin"
                     android:text="@{menuArray.itemName_eng}"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="@color/text_color_black" />
 
                 <TextView
@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:fontFamily="@font/clanpro_book"
+                    android:fontFamily="@font/clanpro"
                     android:gravity="start"
                     android:padding="@dimen/quad_margin"
                     android:text="@{menuArray.itemDesc_eng}"
@@ -73,11 +73,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:fontFamily="@font/clanpro_book"
+                    android:fontFamily="@font/clanpro"
                     android:gravity="start"
                     android:padding="@dimen/quad_margin"
                     android:text="@{@string/kd_symbl(menuArray.itemPrice)}"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="@color/text_color_gray" />
             </LinearLayout>
 
