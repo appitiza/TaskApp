@@ -3,6 +3,8 @@
     package="net.appitiza.task">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -10,18 +12,42 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".ui.store.StoreActivity"
+        <activity
+            android:name=".ui.store.StoreActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeStore"  >
+            android:theme="@style/AppThemeStore"></activity>
+        <activity
+            android:name=".ui.detailed.DetailedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeDetailed" />
+        <activity
+            android:name=".ui.startup.StartUpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeStore">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.detailed.DetailedActivity"
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".ui.mapdisplay.MapDisplayActivity"
+            android:label="@string/title_activity_map_display"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeDetailed"/>
+            android:theme="@style/AppThemeStore" />
+        <activity android:name=".ui.setlocation.SetLocationActivity"></activity>
     </application>
 
 </manifest>

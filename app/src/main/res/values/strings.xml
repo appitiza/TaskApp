@@ -6,4 +6,8 @@
     <string name="transition_store_detailed">image_store_detailed</string>
     <string name="image_store_detailed">image_store_detailed</string>
     <string name="kd_symbl">%1$s KD</string>
+    <string name="title_activity_map_display">Map</string>
+    <string name="btn_store">Load Store</string>
+    <string name="btn_map">Load Tracking</string>
+    <string name="btn_track">Set Location</string>
 </resources>

@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "920636047029",
+    "firebase_url": "https://coherent-window-206320.firebaseio.com",
+    "project_id": "coherent-window-206320",
+    "storage_bucket": "coherent-window-206320.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920636047029:android:2634510cf82c1e99",
+        "android_client_info": {
+          "package_name": "net.appitiza.task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920636047029-0351lkq7k1h51bo660nsam2f3mmsfrsc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.appitiza.task",
+            "certificate_hash": "297f42869bcb9def27742921d991263e3ab5621e"
+          }
+        },
+        {
+          "client_id": "920636047029-i0gfkknsuf6n91jfqfkmoigcljr2pmu9.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "920636047029-i0gfkknsuf6n91jfqfkmoigcljr2pmu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXI93m_0ALqT-7GRexsATHbeCfcjvZ14k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920636047029-i0gfkknsuf6n91jfqfkmoigcljr2pmu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
