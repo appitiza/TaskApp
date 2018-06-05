@@ -15,7 +15,7 @@
         <activity
             android:name=".ui.store.StoreActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeStore"></activity>
+            android:theme="@style/AppThemeStore"/>
         <activity
             android:name=".ui.detailed.DetailedActivity"
             android:screenOrientation="portrait"
@@ -47,7 +47,7 @@
             android:label="@string/title_activity_map_display"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeStore" />
-        <activity android:name=".ui.setlocation.SetLocationActivity"></activity>
+        <activity android:name=".ui.setlocation.SetLocationActivity"/>
     </application>
 
 </manifest>

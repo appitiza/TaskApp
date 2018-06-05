@@ -15,9 +15,9 @@ class StartUpActivity :BaseActivity<StartUpPresenter>(), StartUpView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_up)
-        btn_startup_store.setOnClickListener { presenter.moveToStore(iv_item,this) }
-        btn_startup_map.setOnClickListener { presenter.moveToMap(iv_item,this) }
-        btn_startup_track.setOnClickListener { presenter.moveToSetLoction(iv_item,this) }
+        btn_startup_store.setOnClickListener { presenter.moveToStore(btn_startup_store,this) }
+        btn_startup_map.setOnClickListener { presenter.moveToMap(btn_startup_map,this) }
+        btn_startup_track.setOnClickListener { presenter.moveToSetLoction(btn_startup_track,this) }
     }
     override fun instantiatePresenter(): StartUpPresenter {
         return StartUpPresenter(this)
