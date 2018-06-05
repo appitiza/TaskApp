@@ -10,4 +10,6 @@
     <string name="btn_store">Load Store</string>
     <string name="btn_map">Load Tracking</string>
     <string name="btn_track">Set Location</string>
+    <string name="permission_rationale">Enable Location Permission from Settings</string>
+    <string name="ok">OK</string>
 </resources>

@@ -9,6 +9,7 @@ import android.view.View
 import net.appitiza.task.R
 import net.appitiza.task.base.BasePresenter
 import net.appitiza.task.ui.mapdisplay.MapDisplayActivity
+import net.appitiza.task.ui.setlocation.SetLocationActivity
 import net.appitiza.task.ui.store.StoreActivity
 
 
@@ -37,7 +38,7 @@ class StartUpPresenter(startUpView: StartUpView) : BasePresenter<StartUpView>(st
 
     fun moveToSetLoction(view : View,context: Context) {
 
-        val intent = Intent(context, StoreActivity::class.java)
+        val intent = Intent(context, SetLocationActivity::class.java)
         val p1 = Pair(view, context.getString(R.string.image_store_detailed))
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity, p1)
         context.startActivity(intent, options.toBundle())
