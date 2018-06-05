@@ -18,7 +18,7 @@ android {
         config {
             keyAlias 'taskapp'
             keyPassword 'taskapp123'
-            storeFile file('D:\\projects\\TaskApp\\app\\taskapp.jks')
+            storeFile file('taskapp.jks')
             storePassword 'taskapp123'
         }
     }
