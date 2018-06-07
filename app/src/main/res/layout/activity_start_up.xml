@@ -13,17 +13,20 @@
         android:id="@+id/btn_startup_store"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_store" />
+        android:text="@string/btn_store"
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/btn_startup_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_map" />
+        android:text="@string/btn_map"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/btn_startup_track"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_track" />
+        android:text="@string/btn_track"
+        android:textColor="@android:color/black"/>
 </LinearLayout>

@@ -47,7 +47,9 @@
             android:label="@string/title_activity_map_display"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeStore" />
-        <activity android:name=".ui.setlocation.SetLocationActivity"/>
+        <activity android:name=".ui.setlocation.SetLocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeStore"/>
     </application>
 
 </manifest>

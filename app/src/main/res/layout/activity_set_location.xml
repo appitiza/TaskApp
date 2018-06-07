@@ -10,5 +10,15 @@
         android:id="@+id/btn_setlocation_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_map" />
+        android:text="@string/btn_map"
+        android:textColor="@android:color/black" />
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map_set"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.mapdisplay.MapDisplayActivity" />
+
 </LinearLayout>

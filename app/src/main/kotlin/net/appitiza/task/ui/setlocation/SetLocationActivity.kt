@@ -1,6 +1,7 @@
 package net.appitiza.task.ui.setlocation
 
 import android.Manifest
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -23,33 +24,55 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.common.collect.ImmutableMap
+import com.pubnub.api.PNConfiguration
+import com.pubnub.api.PubNub
+import com.pubnub.api.callbacks.PNCallback
+import com.pubnub.api.models.consumer.PNPublishResult
+import com.pubnub.api.models.consumer.PNStatus
 import kotlinx.android.synthetic.main.activity_set_location.*
 import net.appitiza.task.BuildConfig
 import net.appitiza.task.R
+import net.appitiza.task.utility.*
 import java.util.*
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
-class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
+class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener , OnMapReadyCallback {
 
 
     private val TAG = "CreateSite"
+    private lateinit var mMap: GoogleMap
     private lateinit var mGoogleApiClient: GoogleApiClient
     private var mLocationManager: LocationManager? = null
     private lateinit var mLocation: Location
     private var mLocationRequest: LocationRequest? = null
     private val listener: com.google.android.gms.location.LocationListener? = null
-    private val UPDATE_INTERVAL = (2 * 1000).toLong()  /* 10 secs */
-    private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
+    private val UPDATE_INTERVAL = (2 * 1000).toLong()
+    private val FASTEST_INTERVAL: Long = 2000
 
     private lateinit var locationManager: LocationManager
     private val REQUEST_PERMISSIONS_REQUEST_CODE = 34
 
-    private val mSelectedCalender = Calendar.getInstance()
+    private var pubNub: PubNub? = null
+    private var userName: String? = null
+    private var random: Random? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_location)
-        initialize()
+        val mapFragment = supportFragmentManager
+                .findFragmentById(R.id.map_set) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
+        setPubNub()
 
 
     }
@@ -85,13 +108,7 @@ class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallb
         }
     }
 
-    override fun onStart() {
 
-        if (mGoogleApiClient != null) {
-            mGoogleApiClient.connect()
-        }
-        super.onStart()
-    }
 
 
 
@@ -103,6 +120,7 @@ class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallb
     }
 
     private fun initialize() {
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
             if (!checkPermissions()) {
@@ -130,6 +148,8 @@ class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallb
                 .build()
 
         mLocationManager = this.getSystemService(android.content.Context.LOCATION_SERVICE) as LocationManager
+
+            mGoogleApiClient.connect()
     }
 
     private fun checkLocation(): Boolean {
@@ -219,9 +239,30 @@ class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallb
         mLocation = location
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
+        val message = getNewLocationMessage(userName, location)
+
+        this.pubNub?.publish()?.channel(PUBLISH_CHANNEL_NAME)?.message(message)?.async(
+                object : PNCallback<PNPublishResult>() {
+                    override fun onResponse(result: PNPublishResult, status: PNStatus) {
+                        try {
+                            if (!status.isError) {
+                                Log.v(TAG, "publish(" + JsonUtil.asJson(result) + ")")
+                            } else {
+                                Log.v(TAG, "publishErr(" + status.toString() + ")")
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+
+                    }
+                }
+        )
 
     }
 
+    private fun getNewLocationMessage(userName: String?, location: Location): ImmutableMap<String, String> {
+        return ImmutableMap.of("who", userName, "lat", java.lang.Double.toString(location.latitude), "lng", java.lang.Double.toString(location.longitude))
+    }
     override fun onConnected(p0: Bundle?) {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -244,4 +285,27 @@ class SetLocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallb
                     }
                 })
     }
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        initialize()
+
+    }
+
+    private fun setPubNub() {
+        this.random = Random()
+        this.userName = "testUser"
+        this.pubNub = initPubNub(userName)
+        this.userName = pubNub?.configuration?.uuid
+    }
+
+    fun initPubNub(userName: String?): PubNub {
+        val pnConfiguration = PNConfiguration()
+        pnConfiguration.publishKey = PUBNUB_PUBLISH_KEY
+        pnConfiguration.subscribeKey = PUBNUB_SUBSCRIBE_KEY
+        pnConfiguration.isSecure = true
+        pnConfiguration.uuid = userName
+
+        return PubNub(pnConfiguration)
+    }
+
 }
